@@ -17,6 +17,10 @@ int main() {
   int a5 = deviceProp.textureAlignment;
   int a6 = deviceProp.kernelExecTimeoutEnabled;
   int a7 = deviceProp.ECCEnabled;
+  int a8 = deviceProp.totalConstMem;
   size_t share_multi_proc_mem_size = deviceProp.sharedMemPerMultiprocessor;
+
+  int val;
+  cudaDeviceGetAttribute(&val, cudaDevAttrConcurrentManagedAccess, 0);
   return 0;
 }
