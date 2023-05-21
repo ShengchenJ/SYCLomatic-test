@@ -25,21 +25,22 @@ void atomicKernel(T *atom_arr, T *result_arr)
   *(result_arr + 5) = dpct::atomic_compare_exchange_strong(atom_arr + 5, 63.0f, 6.0f);
 }
 
-int main()
+// int main()
+extern "C" int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) 
 {
   dpct::device_ext &dev_ct1 = dpct::get_current_device();
   sycl::queue &q_ct1 = dev_ct1.default_queue();
 
   float *floatRes, *deviceResf;
   int *intRes, *deviceResi;
-  deviceResf = sycl::malloc_shared<float>(6, q_ct1);
-  deviceResi = sycl::malloc_shared<int>(6, q_ct1);
-  floatRes = sycl::malloc_shared<float>(6, q_ct1);
-  intRes = sycl::malloc_shared<int>(6, q_ct1);
-  for (int i = 0; i < 6; ++i)
+  deviceResf = sycl::malloc_shared<float>(Size, q_ct1);
+  deviceResi = sycl::malloc_shared<int>(Size, q_ct1);
+  floatRes = sycl::malloc_shared<float>(Size, q_ct1);
+  intRes = sycl::malloc_shared<int>(Size, q_ct1);
+  for (int i = 0; i < Size; ++i)
   {
-    *(deviceResf + i) = i;
-    *(deviceResi + i) = i;
+    *(deviceResf + i) = Data[i];
+    *(deviceResi + i) = Data[i];
     *(floatRes + i) = 0;
     *(intRes + i) = 0;
   }
@@ -53,6 +54,8 @@ int main()
   q_ct1.wait();
   for (int i = 0; i < 6; ++i)
   {
+    std::cout << " Float resource is " << *(floatRes+i) << std::endl;
+    std::cout << " Int resource is " << *(intRes +i) << std::endl;
     if (*(floatRes + i) != i || *(intRes + i) != i)
     {
       sycl::free(deviceResf, q_ct1);

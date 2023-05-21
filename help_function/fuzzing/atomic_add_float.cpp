@@ -16,25 +16,29 @@ void atomic_test_kernel(float *ddata, sycl::nd_item<3> item_ct1) {
   unsigned int tid = item_ct1.get_local_range().get(2) * item_ct1.get_group(2) + item_ct1.get_local_id(2);
   // add test
   dpct::atomic_fetch_add(ddata, 1.f);
+  // sub test
+  dpct::atomic_fetch_sub(ddata, 1.f);
 }
 
-int main(int argc, char **argv) try {
+// int main(int argc, char **argv) try {
+extern "C" int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) try{ 
+
   unsigned int numThreads = 256;
   unsigned int numBlocks = 64;
   int err = 0;
 
-  float Hdata;
-  float Hdata2;
+  float *Hdata;
+  float *Hdata2;
 
   printf("atomic test \n");
 
-  Hdata = 0;                      // add
-
+  Hdata = (float*)Data;
+  size_t inputSize = Size;
   // allocate device memory for result
   float *Ddata;
-  *((void **)&Ddata) = sycl::malloc_device(sizeof(int), dpct::dev_mgr::instance().current_device(), dpct::get_default_queue().get_context());
+  *((void **)&Ddata) = sycl::malloc_device(sizeof(inputSize), dpct::dev_mgr::instance().current_device(), dpct::get_default_queue().get_context());
 
-  dpct::get_default_queue().memcpy((void*)(Ddata), (void*)(&Hdata), sizeof(int)).wait();
+  dpct::get_default_queue().memcpy((void*)(Ddata), (void*)(Hdata), sizeof(inputSize)).wait();
 
   {
     dpct::get_default_queue().submit(
@@ -50,13 +54,13 @@ int main(int argc, char **argv) try {
       });
   }
 
-  dpct::get_default_queue().memcpy((void*)(&Hdata2), (void*)(Ddata), sizeof(int)).wait();
+  dpct::get_default_queue().memcpy((void*)(Hdata2), (void*)(Ddata), sizeof(inputSize)).wait();
 
-  // check add
-  if (Hdata2 != (numThreads * numBlocks)) {
-    err = -1;
-    printf("atomicAdd test failed\n");
-  }
+  // // check add
+  // if (Hdata2 != (numThreads * numBlocks)) {
+  //   err = -1;
+  //   printf("atomicAdd test failed\n");
+  // }
 
   sycl::free(Ddata, dpct::get_default_queue().get_context());
   printf("atomic test completed, returned %s\n", err == 0 ? "OK" : "ERROR");

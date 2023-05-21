@@ -33,6 +33,7 @@ void init(int *in, size_t size) {
   }
 }
 
+
 void init_zero(int *in, size_t size) {
   for (auto i = 0; i < size; ++i) {
     in[i] = 0;
@@ -45,12 +46,13 @@ void print(int *in, size_t size) {
   printf("\n");
 }
 
-int main() {
+extern "C" int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) {
+  
   dpct::image_matrix_p ain, aout;
   dpct::image_channel chn =
       dpct::image_channel(32, 0, 0, 0, dpct::image_channel_data_type::signed_int);
   int *in, *out;
-  sycl::range<2> size = sycl::range<2>(256, 1);
+  sycl::range<2> size = sycl::range<2>(Size, 1);
 
   in = (int *)std::malloc(size.size() * sizeof(int));
   out = (int *)std::malloc(size.size() * sizeof(int));
