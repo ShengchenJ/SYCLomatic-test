@@ -1,0 +1,82 @@
+icpx: warning: use of 'dpcpp' is deprecated and will be removed in a future release. Use 'icpx -fsycl' [-Wdeprecated]
+icpx: warning: ignoring '-fsanitize=fuzzer' option as it is not currently supported for target 'spir64-unknown-unknown' [-Woption-ignored]
+./shared_memory.cpp:57:78: warning: 'get_pointer' is deprecated: local_accessor::get_pointer() is deprecated, please use get_multi_ptr() [-Wdeprecated-declarations]
+   57 |             my_kernel(array_ct0, result_ct1, item_ct1, resultInGroup_acc_ct1.get_pointer(), N, M);
+      |                                                                              ^
+/nfs/shm/proj/icl/cmplrarch/deploy_xmain-rel/xmainefi2linux/20240205_160000/build/linux_qa_release/bin/compiler/../../include/sycl/accessor.hpp:3182:3: note: 'get_pointer' has been explicitly marked deprecated here
+ 3182 |   __SYCL2020_DEPRECATED(
+      |   ^
+/nfs/shm/proj/icl/cmplrarch/deploy_xmain-rel/xmainefi2linux/20240205_160000/build/linux_qa_release/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/nfs/shm/proj/icl/cmplrarch/deploy_xmain-rel/xmainefi2linux/20240205_160000/build/linux_qa_release/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+In file included from ./shared_memory.cpp:11:
+In file included from /nfs/shm/proj/icl/cmplrarch/deploy_syclct/llorgsyclctefi2linux/20240207_160000/build/linux_qa_release/include/dpct/dpct.hpp:22:
+In file included from /nfs/shm/proj/icl/cmplrarch/deploy_syclct/llorgsyclctefi2linux/20240207_160000/build/linux_qa_release/include/dpct/image.hpp:14:
+/nfs/shm/proj/icl/cmplrarch/deploy_syclct/llorgsyclctefi2linux/20240207_160000/build/linux_qa_release/include/dpct/memory.hpp:1356:19: warning: 'get_access' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+ 1356 |         .template get_access<sycl::access_mode::read_write>()[index];
+      |                   ^
+./shared_memory.cpp:65:27: note: in instantiation of function template specialization 'dpct::detail::device_memory<float, dpct::shared, 1>::operator[]<1UL>' requested here
+   65 |       printf("%f ", result[j*N + i]);
+      |                           ^
+/nfs/shm/proj/icl/cmplrarch/deploy_xmain-rel/xmainefi2linux/20240205_160000/build/linux_qa_release/bin/compiler/../../include/sycl/buffer.hpp:524:37: note: 'get_access' has been explicitly marked deprecated here
+  524 |           accessor_property_list<>> get_access(const detail::code_location
+      |                                     ^
+In file included from ./shared_memory.cpp:11:
+In file included from /nfs/shm/proj/icl/cmplrarch/deploy_syclct/llorgsyclctefi2linux/20240207_160000/build/linux_qa_release/include/dpct/dpct.hpp:22:
+In file included from /nfs/shm/proj/icl/cmplrarch/deploy_syclct/llorgsyclctefi2linux/20240207_160000/build/linux_qa_release/include/dpct/image.hpp:14:
+/nfs/shm/proj/icl/cmplrarch/deploy_syclct/llorgsyclctefi2linux/20240207_160000/build/linux_qa_release/include/dpct/memory.hpp:1356:19: warning: 'get_access<sycl::access::mode::read_write>' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+ 1356 |         .template get_access<sycl::access_mode::read_write>()[index];
+      |                   ^
+/nfs/shm/proj/icl/cmplrarch/deploy_xmain-rel/xmainefi2linux/20240205_160000/build/linux_qa_release/bin/compiler/../../include/sycl/buffer.hpp:518:3: note: 'get_access<sycl::access::mode::read_write>' has been explicitly marked deprecated here
+  518 |   __SYCL2020_DEPRECATED("get_access for host_accessor is deprecated, please "
+      |   ^
+/nfs/shm/proj/icl/cmplrarch/deploy_xmain-rel/xmainefi2linux/20240205_160000/build/linux_qa_release/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/nfs/shm/proj/icl/cmplrarch/deploy_xmain-rel/xmainefi2linux/20240205_160000/build/linux_qa_release/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+3 warnings generated.
+./shared_memory.cpp:57:78: warning: 'get_pointer' is deprecated: local_accessor::get_pointer() is deprecated, please use get_multi_ptr() [-Wdeprecated-declarations]
+   57 |             my_kernel(array_ct0, result_ct1, item_ct1, resultInGroup_acc_ct1.get_pointer(), N, M);
+      |                                                                              ^
+/nfs/shm/proj/icl/cmplrarch/deploy_xmain-rel/xmainefi2linux/20240205_160000/build/linux_qa_release/bin/compiler/../../include/sycl/accessor.hpp:3182:3: note: 'get_pointer' has been explicitly marked deprecated here
+ 3182 |   __SYCL2020_DEPRECATED(
+      |   ^
+/nfs/shm/proj/icl/cmplrarch/deploy_xmain-rel/xmainefi2linux/20240205_160000/build/linux_qa_release/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/nfs/shm/proj/icl/cmplrarch/deploy_xmain-rel/xmainefi2linux/20240205_160000/build/linux_qa_release/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+In file included from ./shared_memory.cpp:11:
+In file included from /nfs/shm/proj/icl/cmplrarch/deploy_syclct/llorgsyclctefi2linux/20240207_160000/build/linux_qa_release/include/dpct/dpct.hpp:22:
+In file included from /nfs/shm/proj/icl/cmplrarch/deploy_syclct/llorgsyclctefi2linux/20240207_160000/build/linux_qa_release/include/dpct/image.hpp:14:
+/nfs/shm/proj/icl/cmplrarch/deploy_syclct/llorgsyclctefi2linux/20240207_160000/build/linux_qa_release/include/dpct/memory.hpp:1356:19: warning: 'get_access' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+ 1356 |         .template get_access<sycl::access_mode::read_write>()[index];
+      |                   ^
+./shared_memory.cpp:65:27: note: in instantiation of function template specialization 'dpct::detail::device_memory<float, dpct::shared, 1>::operator[]<1UL>' requested here
+   65 |       printf("%f ", result[j*N + i]);
+      |                           ^
+/nfs/shm/proj/icl/cmplrarch/deploy_xmain-rel/xmainefi2linux/20240205_160000/build/linux_qa_release/bin/compiler/../../include/sycl/buffer.hpp:524:37: note: 'get_access' has been explicitly marked deprecated here
+  524 |           accessor_property_list<>> get_access(const detail::code_location
+      |                                     ^
+In file included from ./shared_memory.cpp:11:
+In file included from /nfs/shm/proj/icl/cmplrarch/deploy_syclct/llorgsyclctefi2linux/20240207_160000/build/linux_qa_release/include/dpct/dpct.hpp:22:
+In file included from /nfs/shm/proj/icl/cmplrarch/deploy_syclct/llorgsyclctefi2linux/20240207_160000/build/linux_qa_release/include/dpct/image.hpp:14:
+/nfs/shm/proj/icl/cmplrarch/deploy_syclct/llorgsyclctefi2linux/20240207_160000/build/linux_qa_release/include/dpct/memory.hpp:1356:19: warning: 'get_access<sycl::access::mode::read_write>' is deprecated: get_access for host_accessor is deprecated, please use get_host_access instead [-Wdeprecated-declarations]
+ 1356 |         .template get_access<sycl::access_mode::read_write>()[index];
+      |                   ^
+/nfs/shm/proj/icl/cmplrarch/deploy_xmain-rel/xmainefi2linux/20240205_160000/build/linux_qa_release/bin/compiler/../../include/sycl/buffer.hpp:518:3: note: 'get_access<sycl::access::mode::read_write>' has been explicitly marked deprecated here
+  518 |   __SYCL2020_DEPRECATED("get_access for host_accessor is deprecated, please "
+      |   ^
+/nfs/shm/proj/icl/cmplrarch/deploy_xmain-rel/xmainefi2linux/20240205_160000/build/linux_qa_release/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:53:40: note: expanded from macro '__SYCL2020_DEPRECATED'
+   53 | #define __SYCL2020_DEPRECATED(message) __SYCL_DEPRECATED(message)
+      |                                        ^
+/nfs/shm/proj/icl/cmplrarch/deploy_xmain-rel/xmainefi2linux/20240205_160000/build/linux_qa_release/bin/compiler/../../include/sycl/detail/defines_elementary.hpp:44:38: note: expanded from macro '__SYCL_DEPRECATED'
+   44 | #define __SYCL_DEPRECATED(message) [[deprecated(message)]]
+      |                                      ^
+3 warnings generated.

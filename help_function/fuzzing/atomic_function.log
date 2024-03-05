@@ -1,0 +1,26 @@
+icpx: warning: use of 'dpcpp' is deprecated and will be removed in a future release. Use 'icpx -fsycl' [-Wdeprecated]
+icpx: warning: ignoring '-fsanitize=fuzzer' option as it is not currently supported for target 'spir64-unknown-unknown' [-Woption-ignored]
+./atomic_function.cpp:30:12: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+   30 |   if (Size = 0) return 0;
+      |       ~~~~~^~~
+./atomic_function.cpp:30:12: note: place parentheses around the assignment to silence this warning
+   30 |   if (Size = 0) return 0;
+      |            ^  
+      |       (       )
+./atomic_function.cpp:30:12: note: use '==' to turn this assignment into an equality comparison
+   30 |   if (Size = 0) return 0;
+      |            ^
+      |            ==
+1 warning generated.
+./atomic_function.cpp:30:12: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+   30 |   if (Size = 0) return 0;
+      |       ~~~~~^~~
+./atomic_function.cpp:30:12: note: place parentheses around the assignment to silence this warning
+   30 |   if (Size = 0) return 0;
+      |            ^  
+      |       (       )
+./atomic_function.cpp:30:12: note: use '==' to turn this assignment into an equality comparison
+   30 |   if (Size = 0) return 0;
+      |            ^
+      |            ==
+1 warning generated.

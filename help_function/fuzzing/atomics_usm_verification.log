@@ -1,0 +1,9 @@
+icpx: warning: use of 'dpcpp' is deprecated and will be removed in a future release. Use 'icpx -fsycl' [-Wdeprecated]
+icpx: warning: ignoring '-fsanitize=fuzzer' option as it is not currently supported for target 'spir64-unknown-unknown' [-Woption-ignored]
+./atomics_usm_verification.cpp:247:1: error: expected unqualified-id
+  247 | try {
+      | ^
+./atomics_usm_verification.cpp:311:3: error: expected unqualified-id
+  311 | } catch(std::exception &e) {
+      |   ^
+2 errors generated.

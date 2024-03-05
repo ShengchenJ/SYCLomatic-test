@@ -1,0 +1,6 @@
+icpx: warning: use of 'dpcpp' is deprecated and will be removed in a future release. Use 'icpx -fsycl' [-Wdeprecated]
+icpx: warning: ignoring '-fsanitize=fuzzer' option as it is not currently supported for target 'spir64-unknown-unknown' [-Woption-ignored]
+./thrust_test-pennet_simple_pstl.cpp:121:1: warning: non-void function does not return a value [-Wreturn-type]
+  121 | }
+      | ^
+1 warning generated.

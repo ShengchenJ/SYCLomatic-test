@@ -1,0 +1,6 @@
+icpx: warning: use of 'dpcpp' is deprecated and will be removed in a future release. Use 'icpx -fsycl' [-Wdeprecated]
+icpx: warning: ignoring '-fsanitize=fuzzer' option as it is not currently supported for target 'spir64-unknown-unknown' [-Woption-ignored]
+./[NA]atomic_fetch_compare_inc.cpp:68:1: error: expected unqualified-id
+   68 | catch (sycl::exception const &exc) {
+      | ^
+1 error generated.

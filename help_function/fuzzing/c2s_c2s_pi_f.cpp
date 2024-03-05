@@ -10,6 +10,6 @@
 #include <dpct/dpct.hpp>
 
 int main() {
-  float aaa = C2S_PI_F;
+  float aaa = DPCT_PI_F;
   return 0;
 }

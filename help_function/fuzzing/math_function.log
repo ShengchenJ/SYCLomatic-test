@@ -1,0 +1,13 @@
+icpx: warning: use of 'dpcpp' is deprecated and will be removed in a future release. Use 'icpx -fsycl' [-Wdeprecated]
+icpx: warning: ignoring '-fsanitize=fuzzer' option as it is not currently supported for target 'spir64-unknown-unknown' [-Woption-ignored]
+./math_function.cpp:31:29: warning: variable length arrays in C++ are a Clang extension [-Wvla-cxx-extension]
+   31 |         unsigned int verify[Size] = {
+      |                             ^~~~
+./math_function.cpp:31:29: note: function parameter 'Size' with unknown value cannot be used in a constant expression
+./math_function.cpp:18:67: note: declared here
+   18 | extern "C" int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) {
+      |                                                                   ^
+./math_function.cpp:31:29: error: variable-sized object may not be initialized
+   31 |         unsigned int verify[Size] = {
+      |                             ^~~~
+1 warning and 1 error generated.

@@ -1,0 +1,50 @@
+icpx: warning: use of 'dpcpp' is deprecated and will be removed in a future release. Use 'icpx -fsycl' [-Wdeprecated]
+icpx: warning: ignoring '-fsanitize=fuzzer' option as it is not currently supported for target 'spir64-unknown-unknown' [-Woption-ignored]
+./devicemgr_multi_thread_aware.cpp:67:18: warning: format specifies type 'int' but the argument has type 'size_t' (aka 'unsigned long') [-Wformat]
+   66 |         "only %d sycl deveice available, need %d sycl device for this test\n",
+      |                                               ~~
+      |                                               %zu
+   67 |         dev_cnt, NUM_THREADS);
+      |                  ^~~~~~~~~~~
+./devicemgr_multi_thread_aware.cpp:71:32: warning: variable length arrays in C++ are a Clang extension [-Wvla-cxx-extension]
+   71 |   unsigned long long queue_ptr[NUM_THREADS];
+      |                                ^~~~~~~~~~~
+./devicemgr_multi_thread_aware.cpp:71:32: note: read of non-const variable 'NUM_THREADS' is not allowed in a constant expression
+./devicemgr_multi_thread_aware.cpp:58:10: note: declared here
+   58 |   size_t NUM_THREADS = Size;
+      |          ^
+./devicemgr_multi_thread_aware.cpp:73:46: warning: format specifies type 'long' but the argument has type 'int' [-Wformat]
+   73 |     printf("In main: creating thread %ld\n", t);
+      |                                      ~~~     ^
+      |                                      %d
+./devicemgr_multi_thread_aware.cpp:82:21: warning: comparison between NULL and non-pointer ('unsigned long long' and NULL) [-Wnull-arithmetic]
+   82 |   if ((queue_ptr[0] != NULL) && (queue_ptr[1] != NULL) &&
+      |        ~~~~~~~~~~~~ ^  ~~~~
+./devicemgr_multi_thread_aware.cpp:82:47: warning: comparison between NULL and non-pointer ('unsigned long long' and NULL) [-Wnull-arithmetic]
+   82 |   if ((queue_ptr[0] != NULL) && (queue_ptr[1] != NULL) &&
+      |                                  ~~~~~~~~~~~~ ^  ~~~~
+5 warnings generated.
+./devicemgr_multi_thread_aware.cpp:67:18: warning: format specifies type 'int' but the argument has type 'size_t' (aka 'unsigned long') [-Wformat]
+   66 |         "only %d sycl deveice available, need %d sycl device for this test\n",
+      |                                               ~~
+      |                                               %zu
+   67 |         dev_cnt, NUM_THREADS);
+      |                  ^~~~~~~~~~~
+./devicemgr_multi_thread_aware.cpp:71:32: warning: variable length arrays in C++ are a Clang extension [-Wvla-cxx-extension]
+   71 |   unsigned long long queue_ptr[NUM_THREADS];
+      |                                ^~~~~~~~~~~
+./devicemgr_multi_thread_aware.cpp:71:32: note: read of non-const variable 'NUM_THREADS' is not allowed in a constant expression
+./devicemgr_multi_thread_aware.cpp:58:10: note: declared here
+   58 |   size_t NUM_THREADS = Size;
+      |          ^
+./devicemgr_multi_thread_aware.cpp:73:46: warning: format specifies type 'long' but the argument has type 'int' [-Wformat]
+   73 |     printf("In main: creating thread %ld\n", t);
+      |                                      ~~~     ^
+      |                                      %d
+./devicemgr_multi_thread_aware.cpp:82:21: warning: comparison between NULL and non-pointer ('unsigned long long' and NULL) [-Wnull-arithmetic]
+   82 |   if ((queue_ptr[0] != NULL) && (queue_ptr[1] != NULL) &&
+      |        ~~~~~~~~~~~~ ^  ~~~~
+./devicemgr_multi_thread_aware.cpp:82:47: warning: comparison between NULL and non-pointer ('unsigned long long' and NULL) [-Wnull-arithmetic]
+   82 |   if ((queue_ptr[0] != NULL) && (queue_ptr[1] != NULL) &&
+      |                                  ~~~~~~~~~~~~ ^  ~~~~
+5 warnings generated.
